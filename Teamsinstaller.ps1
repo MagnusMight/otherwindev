@@ -1,1 +1,1 @@
-Add-AppPackage -Path '.\MSTeams-x64 (2).msix'
+Add-AppPackage -Path '.\MSTeams-x64.msix'
