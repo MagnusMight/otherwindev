@@ -62,5 +62,6 @@ echo "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
 #Copy file to location
+echo "Copying File to the Destination"
 Copy-Item -Path '.\LayoutModification.json' -Destination $env:SystemDrive'\Users\Default\Appdata\Local\Microsoft\Windows\Shell'
 
