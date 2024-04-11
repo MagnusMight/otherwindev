@@ -1,14 +1,14 @@
 ###==================================================
-### Layout Modification Using JSON
+### Layout Modification Using Start2.Bin File
 ###==================================================
 ### Date   : 10 April 2024
 ### Author : Chukwuemeka Evulukwu
 ### Updated : 10 April 2024
 ### Script Details:
 ### --------------
-###  This script takes the JSON file 
+###  This script takes the start2.bin file 
 ###  (made by exporting new design from clean image)
-###   Copies the File to the Sys all user folder     
+###   Copies the File to the Default user Dir     
 ###           
 ###      
 ### 
