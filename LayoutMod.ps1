@@ -1,4 +1,4 @@
-﻿###==================================================
+###==================================================
 ### Layout Modification Using JSON
 ###==================================================
 ### Date   : 10 April 2024
@@ -61,7 +61,11 @@ function Elevate-Privileges {
 echo "Elevating priviledges for this process"
 do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 
-#Copy file to location
-echo "Copying File to the Destination"
-Copy-Item -Path '.\LayoutModification.json' -Destination $env:SystemDrive'\Users\Default\Appdata\Local\Microsoft\Windows\Shell'
 
+# Create new Directory
+echo "Creating Default Directory"
+New-Item -ItemType Directory -Path $env:SystemDrive'\Users\Default\AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\Localstate'
+
+#Copy start bin file to location
+echo "Copying Bin File to the Destination"
+Copy-Item -Path $psscriptroot'\start2.bin' -Destination $env:SystemDrive'\Users\Default\AppData\local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\Localstate'
