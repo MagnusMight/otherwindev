@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+; Created by: Chukwuemeka Evulukwu
+; Created on: April 11th 2024
+
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"NoUseStoreOpenWith"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"NoUseStoreOpenWith"=dword:00000001
