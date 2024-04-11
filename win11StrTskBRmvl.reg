@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+; Created by: Chukwuemeka Evulukwu
+; Created on: April 11th 2024
+; Tutorial: http://www.tenforums.com/tutorials/47742-store-enable-disable-pin-taskbar-windows-8-10-a.html
+
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"NoPinningStoreToTaskbar"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"NoPinningStoreToTaskbar"=dword:00000001
