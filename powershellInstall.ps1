@@ -1,18 +1,19 @@
-﻿#REM==========================================
-#REM Create an Admin Password
 #REM==========================================
-#REM Created Date : 02 April 2024
-#REM Update Date  : 02 April  2024
+#REM Installing DataCap and Updates
+#REM==========================================
+#REM Created Date : 12 April 2024
+#REM Update Date  : 12 April  2024
 #REM Author : Raptor J (AKA Mecca)
 #REM 
 #REM Script Details:
 #REM --------------
 #REM  This script will:
-#REM       + Select the computer by name
-#REM       + then access the password file
-#REM       + Create a password for the account
+#REM       + Install the Data cap
+#REM       + then installs the update 1
+#REM       + Update 2
 #REM 
 #REM===========================================
+
 
 
 
@@ -66,29 +67,37 @@ do {} until (Elevate-Privileges SeTakeOwnershipPrivilege)
 $Arguments = "/S /V`"/passive ADDDEFAULT=LAP,Shared,Client`""
 
 #Arguments for Update 1 
-Arguments1 = "/S /V`"/passive`”" 18_4_2_DynamsoftServiceSetup.msi -/i /qn
+$Arguments1 = "/S /V`"/passive`""
 
 #Arguments for Update 2
-Arguments2 = /qn
+$Arguments2 =  "/qn"
+
 
 #Install the first File
 Write-Host "Installing DataCap..." -ForegroundColor Red
-Start-Process -FilePath “.\IBM_Datacap_9.1.9\setup.exe” -ArgumentList $Arguments -Wait -NoNewWindow
+Start-Process -FilePath C:\DataCapother\setup.exe -ArgumentList $Arguments -PassThru -Wait -NoNewWindow 
 
 # Check if DataCap has been installed on the machine to move to the update
 if (Test-Path "C:\DataCap") {
     # Folder exists Install Update 1
     Write-host "Successful Install of DataCap. Attempting to Do Update 1...." -f Green
-    Start-Process -FilePath “.\9.1.9.0-Datacap-WIN-IF004\Update.exe” -ArgumentList $Arguments1 -Wait -NoNewWindow
+    Start-Process -FilePath C:\DataCapother\Update.exe -ArgumentList $Arguments1 -PassThru -Wait -NoNewWindow
 
+    #Sleep to wait for any other install to finish
+    Write-host "Waiting...."
     Start-Sleep -Seconds 60
 
-     Start-Process -FilePath “.\Datacap919iFix004_DynamsoftServiceUpdate\18_4_2_DynamsoftServiceSetup.msi” -ArgumentList $Arguments2 -Wait -NoNewWindow
+    #msi installation of update 2
+     Write-host "Installing Update 2...."
+    Msiexec /i "C:\DataCapother\18_4_2_DynamsoftServiceSetup.msi" $Arguments2 
+    
 }
 else {
     # Folder does not exist - Do something else here
     Write-host "Folder Doesn't Exists! Failure" -f Red
 }
+
+
 
 
 
