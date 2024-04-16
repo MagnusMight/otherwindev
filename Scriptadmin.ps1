@@ -22,10 +22,13 @@ $adminname = "DisabledAdmin"
 
 $file = "\\mxl0063knr\DeploymentShare11\Keys\Pass.txt"
 
+$Encrypted = "76492d1116743f0423413b16050a5345MgB8AHUAUQBFAGgANwBpAGYAdQBVAFUAdwByAGwAVwBoAEUAMgBtAFkAbAA0AHcAPQA9AHwANQAyADUANwAwADMAMQAxADMAZgBlAGQAZAAyADQAZgBkADIANwBiADIANQA3ADcAYwAwAGIAOQAxADEANgA0ADgAOAA4ADMAMAA0AGUAMwBlAGUAYgBkAGMANgA2AGEAMwAzADUAMABmAGUANgBiADkAZQAwADgAOABjAGUAMwA0ADYAMwBjADUAYwA0ADIAYQAyADkAYgA3ADkAMQA4AGMAMAAzAGYAZQBjADUANgAxAGMAYgA2AGMAMwAyADIA"
+
+
 [Byte[]] $key = (1..16)
 
 #Settings for the password
-$PasswordSecured = Get-Content $File | ConvertTo-SecureString -Key $Key
+$PasswordSecured = ConvertTo-SecureString -String $Encrypted -Key $Key
 $marshal = [System.Runtime.InteropServices.Marshal]
 $bstr = $marshal::SecureStringToBSTR($PasswordSecured)
 $pass = $marshal::PtrToStringAuto($bstr) 
