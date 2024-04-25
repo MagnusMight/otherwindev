@@ -26,7 +26,7 @@ try {
 		Write-Host "Microsoft.UI.Xaml.2.8 is installed."
 	} else {
 		Write-Host "Installing Microsoft.UI.Xaml.2.8..."
-		Add-AppxPackage https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/microsoft-ui-xaml.2.8.x64.appx
+		Add-AppxPackage https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/microsoft.ui.xaml.2.8.x64.appx
 	}
 <## Update Microsoft.VCLibs.140.00.UWPDesktop
 		Write-Host "Updating Microsoft.VCLibs.140.00.UWPDesktop..."
@@ -49,7 +49,7 @@ Write-host "Making sure it is the right version" -ForegroundColor Yellow
 		Write-Host "Microsoft.UI.Xaml.2.8 is installed. Seems Updated to me" -ForegroundColor Green
 	} else {
 		Write-Host "Installing Microsoft.UI.Xaml.2.8..."
-		Add-AppxPackage https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/microsoft-ui-xaml.2.8.x64.appx 
+		Add-AppxPackage https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/microsoft.ui.xaml.2.8.x64.appx 
         Add-AppxPackage https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 	}
 
